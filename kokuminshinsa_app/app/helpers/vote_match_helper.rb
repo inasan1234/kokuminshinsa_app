@@ -1,0 +1,2 @@
+module VoteMatchHelper
+end
