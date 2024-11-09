@@ -1,19 +1,52 @@
 <% provide(:title, "VoteMatch") %>
+<div class="progress-bar-container">
+  <div id="progress-bar" class="progress-bar"></div>
+</div>
 
 <div id="screen-1" class="screen active-screen">
-  <h2>Screen 1</h2>
-  <p>This is the content of the first screen.</p>
+  <h2>Q.1</h2>
+  <p>死刑制度は維持すべきである。</p>
+  <div>
+    <input type="radio" name="question1" value="-2" id="option-1">
+    <label for="option-1">反対</label>
+    
+    <input type="radio" name="question1" value="-1" id="option-2">
+    <label for="option-2">どちらかと言えば反対</label>
+    
+    <input type="radio" name="question1" value="0" id="option-3">
+    <label for="option-3">どちらとも言えない</label>
+    
+    <input type="radio" name="question1" value="1" id="option-4">
+    <label for="option-4">どちらかと言えば賛成</label>
+    
+    <input type="radio" name="question1" value="2" id="option-5">
+    <label for="option-5">賛成</label>
+  </div>
 </div>
 
 <div id="screen-2" class="screen">
   <h2>Screen 2</h2>
   <p>This is the content of the second screen.</p>
+  <p>Question 2: Do you agree with this statement?</p>
+  <div>
+    <input type="radio" name="question2" value="yes"> Yes
+    <input type="radio" name="question2" value="no"> No
+  </div>
 </div>
 
 <div id="screen-3" class="screen">
   <h2>Screen 3</h2>
   <p>This is the content of the third screen.</p>
+  <p>Question 3: Do you agree with this statement?</p>
+  <div>
+    <input type="radio" name="question3" value="yes"> Yes
+    <input type="radio" name="question3" value="no"> No
+  </div>
+  <%= link_to "Result", "#", class: "navigation-button", id: "result-btn", disabled: true %>
 </div>
 
+<!-- 前の画面へ戻るボタン -->
+<button id="back-btn" class="navigation-button" style="display: none;" data-turbi="false">Back</button>
+
 <!-- 次の画面へ進むボタン -->
-<button id="next-btn" class="btn btn-primary" data-turbo="false">Next</button>
+<button id="next-btn" class="navigation-button" data-turbo="false">Next</button>

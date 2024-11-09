@@ -111,5 +111,124 @@ footer {
 }
 
 .active-screen {
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* スクリーン全体を縦方向に中央に配置 */
+}
+
+
+/* ラジオボタンを隠してカスタムボタンを作成 */
+input[type="radio"] {
+  display: none; /* デフォルトのラジオボタンを非表示に */
+}
+
+/* カスタムボタン風にする */
+input[type="radio"] + label {
   display: block;
+  background-color: #30ACFF; /* ボタンの背景色 */
+  color: white;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* ラジオボタンが選択されたときのスタイル */
+input[type="radio"]:checked + label {
+  background-color: #0056b3; /* 選択されたときの色 */
+}
+
+/* ラベルにホバー効果を追加 */
+input[type="radio"]:not(:checked) + label:hover {
+  background-color: #0056b3;
+}
+
+/* ラベルにチェックが付いている場合のホバー効果を追加 */
+input[type="radio"]:checked + label:hover {
+  background-color: #004085;
+}
+
+
+/* 進捗バーのスタイル */
+.progress-bar-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  height: 8px;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background-color: #2264df;
+  transition: width 0.5s ease;
+}
+
+/* カスタムボタンのスタイル */
+.navigation-button {
+  position: fixed;
+  bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* 左下に配置するBackボタン */
+#back-btn {
+  left: 20px;
+  background-color: #6c757d; /* グレー */
+}
+
+#back-btn:hover {
+  background-color: #5a6268;
+}
+
+/* 右下に配置するNextボタン */
+#next-btn {
+  right: 20px;
+  background-color: #007bff; /* ブルー */
+}
+
+#next-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 無効化時のスタイル */
+#next-btn:disabled {
+  background-color: #cccccc; /* 無効化時の色 (ライトグレー) */
+  cursor: not-allowed;
+}
+
+/* 右下に配置するResultボタン */
+#result-btn {
+  right: 20px;
+  background-color: #007bff; /* ブルー */
+}
+
+#next-btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn-success {
+    width: 100%; /* モバイルでボタンを全幅に */
+    font-size: 1.1rem;
+  }
 }

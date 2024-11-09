@@ -13,10 +13,14 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload" %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
+    <% unless @hide_header_footer %>
+      <%= render 'layouts/header' %>
+    <% end %>
     <div class="container">
       <%= yield %>
-      <%= render 'layouts/footer' %>
     </div>
+    <% unless @hide_header_footer %>
+      <%= render 'layouts/footer' %>
+    <% end %>
   </body>
 </html>
