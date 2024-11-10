@@ -3,50 +3,60 @@
   <div id="progress-bar" class="progress-bar"></div>
 </div>
 
-<div id="screen-1" class="screen active-screen">
-  <h2>Q.1</h2>
-  <p>死刑制度は維持すべきである。</p>
-  <div>
-    <input type="radio" name="question1" value="-2" id="option-1">
-    <label for="option-1">反対</label>
-    
-    <input type="radio" name="question1" value="-1" id="option-2">
-    <label for="option-2">どちらかと言えば反対</label>
-    
-    <input type="radio" name="question1" value="0" id="option-3">
-    <label for="option-3">どちらとも言えない</label>
-    
-    <input type="radio" name="question1" value="1" id="option-4">
-    <label for="option-4">どちらかと言えば賛成</label>
-    
-    <input type="radio" name="question1" value="2" id="option-5">
-    <label for="option-5">賛成</label>
-  </div>
-</div>
+<%= form_with(url: votematch_sendform_path, method: :post, local: true) do |form| %>
+    <div id="screen-1" class="screen active-screen">
+    <h2>Q.1</h2>
+    <h2>死刑制度は維持すべきである。</h2>
+    <div class="radio-buttons-container">
+      <%= form.radio_button :question1, "-2", id: "1-option-1" %>
+      <%= form.label :question1, "反対", value: "-2", for: "1-option-1" %>
 
-<div id="screen-2" class="screen">
-  <h2>Screen 2</h2>
-  <p>This is the content of the second screen.</p>
-  <p>Question 2: Do you agree with this statement?</p>
-  <div>
-    <input type="radio" name="question2" value="yes"> Yes
-    <input type="radio" name="question2" value="no"> No
-  </div>
-</div>
+      <%= form.radio_button :question1, "-1", id: "1-option-2" %>
+      <%= form.label :question1, "どちらかと言えば反対", value: "-1", for: "1-option-2" %>
 
-<div id="screen-3" class="screen">
-  <h2>Screen 3</h2>
-  <p>This is the content of the third screen.</p>
-  <p>Question 3: Do you agree with this statement?</p>
-  <div>
-    <input type="radio" name="question3" value="yes"> Yes
-    <input type="radio" name="question3" value="no"> No
-  </div>
-  <%= link_to "Result", "#", class: "navigation-button", id: "result-btn", disabled: true %>
-</div>
+      <%= form.radio_button :question1, "0", id: "1-option-3" %>
+      <%= form.label :question1, "どちらとも言えない", value: "0", for: "1-option-3" %>
 
-<!-- 前の画面へ戻るボタン -->
-<button id="back-btn" class="navigation-button" style="display: none;" data-turbi="false">Back</button>
+      <%= form.radio_button :question1, "1", id: "1-option-4" %>
+      <%= form.label :question1, "どちらかと言えば賛成", value: "1", for: "1-option-4" %>
 
-<!-- 次の画面へ進むボタン -->
-<button id="next-btn" class="navigation-button" data-turbo="false">Next</button>
+      <%= form.radio_button :question1, "2", id: "1-option-5" %>
+      <%= form.label :question1, "賛成", value: "2", for: "1-option-5" %>
+    </div>
+    </div>
+
+    <div id="screen-2" class="screen">
+    <h2>Q.2</h2>
+    <h2>生物学的な性別が男性(または女性)である人が、法的性別を女性(または男性)に変更する際に生殖腺除去手術を受けるべきである。</h2>
+    <p>性同一性障害者の性別の取扱いの特例に関する法律3条1項が定める性別変更審判の実施要件4号の是非</p>
+    <div class="radio-buttons-container">
+      <%= form.radio_button :question2, "-2", id: "2-option-1" %>
+      <%= form.label :question2, "反対", value: "-2", for: "2-option-1" %>
+
+      <%= form.radio_button :question2, "-1", id: "2-option-2" %>
+      <%= form.label :question2, "どちらかと言えば反対", value: "-1", for: "2-option-2" %>
+
+      <%= form.radio_button :question2, "0", id: "2-option-3" %>
+      <%= form.label :question2, "どちらとも言えない", value: "0", for: "2-option-3" %>
+
+      <%= form.radio_button :question2, "1", id: "2-option-4" %>
+      <%= form.label :question2, "どちらかと言えば賛成", value: "1", for: "2-option-4" %>
+
+      <%= form.radio_button :question2, "2", id: "2-option-5" %>
+      <%= form.label :question2, "賛成", value: "2", for: "2-option-5" %>
+    </div>
+    </div>
+
+    <div id="screen-last" class="screen">
+    <h2>お疲れ様でした。</h2>
+    <h2>以下のボタンから結果を確認することが出来ます。</h2>
+    <%= form.submit "Result", id: "result-btn" %>
+    </div>
+
+    <!-- 前の画面へ戻るボタン -->
+    <button id="back-btn" class="navigation-button" style="display: none;" data-turbi="false">Back</button>
+
+    <!-- 次の画面へ進むボタン -->
+    <button id="next-btn" class="navigation-button" data-turbo="false">Next</button>
+
+<% end %>

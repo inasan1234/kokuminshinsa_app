@@ -82,6 +82,7 @@ header.navbar{
 footer {
   margin-top: 45px;
   padding-top: 5px;
+  padding-right: 15px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
   a {
@@ -116,7 +117,14 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh; /* スクリーン全体を縦方向に中央に配置 */
+
+  min-height: 80vh;             /* 最小高さを画面サイズに合わせる */
+  height: auto;                  /* 高さを自動調整 */
+  width: 100%;                   /* 横幅を100%に */
+  position: relative;            /* 絶対配置を避け、レイアウトを調整 */
+  top: 0;                        /* 上端に配置 */
+  left: 0;                       /* 左端に配置 */
+  overflow-y: auto;              /* コンテンツがはみ出た場合、縦スクロールを表示 */
 }
 
 
@@ -153,7 +161,6 @@ input[type="radio"]:not(:checked) + label:hover {
 input[type="radio"]:checked + label:hover {
   background-color: #004085;
 }
-
 
 /* 進捗バーのスタイル */
 .progress-bar-container {
@@ -211,8 +218,18 @@ input[type="radio"]:checked + label:hover {
 
 /* 右下に配置するResultボタン */
 #result-btn {
-  right: 20px;
-  background-color: #007bff; /* ブルー */
+  position: absolute;
+  left: 50%;                        /* 横位置を画面の中央に設定 */
+  transform: translateX(-50%);      /* 左右中央に配置 */
+  bottom: 10%;                       /* 画面下部から30%の位置に配置 */
+  background-color: #007bff;        /* ボタンの背景色 */
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 #next-btn:hover {

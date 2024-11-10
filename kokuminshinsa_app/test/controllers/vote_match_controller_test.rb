@@ -11,4 +11,16 @@ class VoteMatchControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "VoteMatch | #{@base_title}"
   end
+
+  test "should get question" do
+    get votematch_question_path
+    assert_response :success
+    assert_select "title", "VoteMatch | #{@base_title}"
+  end
+
+  test "should get result" do
+    get votematch_result_path
+    assert_response :success
+    assert_select "title", "Result | #{@base_title}"
+  end
 end

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "/contact",            to: "static_pages#contact"
   get "/votematch",          to: "vote_match#home"
   get "/votematch/question", to: "vote_match#question"
+  get "/votematch/result",   to: "vote_match#result"
+  post "/votematch/sendform",to: "vote_match#sendform", as: :votematch_sendform
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
