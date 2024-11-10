@@ -14,3 +14,11 @@ ENV BUNDLE_PATH='/usr/local/bundle'
 ARG RAILS_VERSIONS='7.0.3'
 RUN gem install rails -v ${RAILS_VERSIONS}
 RUN gem install ruby-lsp
+
+# MySQLのクライアントライブラリをインストール
+RUN apt-get update && \
+    apt-get install -y mysql-client libmysqlclient-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+# 必要なポートを公開
+EXPOSE 3000
